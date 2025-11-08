@@ -1,0 +1,88 @@
+Q1. What do you mean by Structures?
+A1. A structure in C is a user-defined data type that allows grouping variables of 
+different data types under a single name. It helps organize complex data like records.
+Example Code:
+
+#include <stdio.h>
+
+struct Student {
+    int roll;
+    char name[20];
+    float marks;
+};
+
+int main() {
+    struct Student s1 = {1, "Rahul", 85.5};
+
+    printf("Roll No: %d\n", s1.roll);
+    printf("Name: %s\n", s1.name);
+    printf("Marks: %.2f\n", s1.marks);
+
+    return 0;
+}
+OUTPUT:
+Roll No: 1
+Name: Rahul
+Marks: 85.50
+
+Q2. What do you mean by Array & Pointers Array?
+A2. Array: A collection of elements of the same data type stored in contiguous memory locations.
+    Pointer Array: An array that stores addresses of variables (pointers) instead of actual values.
+Example Code:
+
+#include <stdio.h>
+
+int main() {
+    int arr[3] = {10, 20, 30};
+    int *ptr[3]; // array of pointers
+
+    for(int i = 0; i < 3; i++) {
+        ptr[i] = &arr[i];  // storing addresses
+    }
+
+    printf("Array elements using pointers:\n");
+    for(int i = 0; i < 3; i++) {
+        printf("%d ", *ptr[i]); // dereferencing pointers
+    }
+
+    return 0;
+}
+OUTPUT:
+Array elements using pointers:
+10 20 30
+
+Q3. COMPARE TWO STRUCTURE VARIABLES:
+       Direct comparison not possible using == or !=
+       So, we compare each member individually.
+    */
+    printf("Q3 Output:\n");
+    struct Student a = {1, "Nirbhay", 89.5};
+    struct Student b = {1, "Nirbhay", 89.5};
+
+    if (a.rollno == b.rollno && strcmp(a.name, b.name) == 0 && a.marks == b.marks)
+        printf("Structures are Equal\n");
+    else
+        printf("Structures are Not Equal\n");
+    // Output:
+    // Structures are Equal
+    printf("\n");
+
+
+    /* 
+  Q4- ARITHMETIC OPERATIONS ON STRUCTURES:
+       We can perform arithmetic on numeric members of structures.
+    */
+    printf("Q4 Output:\n");
+    struct Student st1 = {1, "Ravi", 80.0};
+    struct Student st2 = {2, "Karan", 90.0};
+    float total = st1.marks + st2.marks;
+    float avg = total / 2;
+
+    printf("Total Marks = %.1f\n", total);
+    printf("Average Marks = %.1f\n", avg);
+    // Output:
+    // Total Marks = 170.0
+    // Average Marks = 85.0
+
+    return 0;
+}
